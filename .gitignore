@@ -1,0 +1,19 @@
+# Generated PDF output
+cv.pdf
+build.log
+*.log
+
+# Generated font metrics and Adobe Type 1 binaries
+fonts/devpdf/
+fonts/src/
+
+# Generated rasterized/cropped PDF assets
+assets/pdf/
+
+# Editor backups and scratch artifacts
+*.bak
+*~
+*.swp
+*Zone.Identifier*
+*:Zone.Identifier
+maybe.pdf

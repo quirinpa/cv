@@ -1,0 +1,254 @@
+.\" -*- coding: utf-8 -*-
+.\" style.mom — Paulo Quirino's CV Styling & Macro Engine
+.\"
+.\" Encapsulates page geometry, typography, color palette, measurement registers,
+.\" and reusable semantic typesetting macros.
+
+.mom
+
+.\" ---------------------------------------------------------------- page
+.PAPER A4
+.PAGE 595.28p 841.89p 48p 48p 48p 48p
+
+.\" Blank input lines would each add a blank line of vertical space.
+.\" Ignore them; spacing is set explicitly by semantic macros.
+.de BLANK_NOOP
+..
+.blm BLANK_NOOP
+
+.\" ------------------------------------------------------- type & colour
+.FAMILY Inter
+.PT_SIZE 9.5
+.LS 11.5
+.FALLBACK_FONT InterR
+.NEWCOLOR pagebg   RGB #FFFFFF
+.PAGE_COLOR pagebg
+.NEWCOLOR navy     RGB #17263C
+.NEWCOLOR slate    RGB #1E293B
+.NEWCOLOR faint    RGB #64748B
+.NEWCOLOR teal     RGB #0D9488
+.NEWCOLOR purple   RGB #7C3AED
+.NEWCOLOR slfg     RGB #0F766E
+.NEWCOLOR borderc  RGB #94A3B8
+.NEWCOLOR gridc    RGB #EBF4F3
+.NEWCOLOR rulec    RGB #5FAFA7
+
+.\" ------------------------------------------------- full-measure regs
+.nr FULLW \n[.l]
+.nr LM \n[.i]
+
+.\" right-indent helper: shrink line length by \$1 (leaves left alone)
+.de RTIND
+.ll (\n[FULLW]u - \\$1)
+..
+.\" left-indent helper: shift left margin by \$1, shrink length by \$1
+.de LTIND
+.in (\n[LM]u + \\$1)
+.ll (\n[FULLW]u - \\$1)
+..
+.\" restore full measure
+.de RMARG
+.in \n[LM]u
+.ll \n[FULLW]u
+..
+
+.\" ---------------------------------------------- RETRO BG PATTERN
+.\" Intentional 1980s technical drafting rhythm: paired margin guides,
+.\" column gutter guide pair, and sparse interior column divisions.
+.de BG_PATTERN
+.mk
+\m[gridc]\c
+\L'740p'\v'-740p'\h'8p'\c
+\L'740p'\v'-740p'\h'74p'\c
+\L'740p'\v'-740p'\h'82p'\c
+\L'740p'\v'-740p'\h'82p'\c
+\L'740p'\v'-740p'\h'8p'\c
+\L'740p'\v'-740p'\h'82p'\c
+\L'740p'\v'-740p'\h'82p'\c
+\L'740p'\v'-740p'\h'73p'\c
+\L'740p'\v'-740p'\h'8p'\c
+\L'740p'\v'-740p'\c
+\h'-499p'\m[black]\c
+.rt
+..
+
+.\" ------------------------------------------------------------- SECTION
+.de SECTION
+.br
+.sp 16p
+\*[navy]\fB\s[+1.5]\\$*\s[0]\fP\*[black]
+.sp 4p
+..
+
+.\" ---------------------------------------------------- HORIZONTAL RULE
+.\" args: 1=space_before  2=space_after
+.de RULE
+.if !'\\$1'' .sp \\$1
+\m[rulec]\l'\n[.l]u'\m[black]
+.if !'\\$2'' .sp \\$2
+..
+
+.\" ---------------------------------------------------------- CV HEADER
+.\" args: 1=name 2=title 3=tagline 4=location 5=phone 6=email 7=github_url 8=github_label 9=portrait
+.de CV_HEADER
+.BG_PATTERN
+.PDF_IMAGE -R \\$9 300p 293p SCALE 25 NO_SHIM NO_FLEX
+.sp -73p
+.RTIND 96p
+\*[navy]\fB\s[+14]\\$1\fP\s[0]\*[black]
+.br
+\*[teal]\fB\s[+1.5]\\$2\s[0]\fP\*[black]
+.br
+\*[faint]\s[-0.5]\\$3\s[0]\*[black]
+.br
+.sp 6p
+\*[faint]\\$4\ \ \[pc]\ \ \*[black]\c
+.pdfhref W -D "tel:\\$5" "\*[navy]\\$5\*[black]"
+.br
+\*[purple]\c
+.pdfhref W -D "mailto:\\$6" "\\$6"
+\*[faint]\ \ \[pc]\ \ \*[purple]\c
+.pdfhref W -D "\\$7" "\\$8"
+\*[black]
+.br
+.RMARG
+.RULE 8p 2p
+..
+
+.\" ------------------------------------------------------------ PROFILE
+.de PROFILE_BEGIN
+.SECTION PROFILE
+.PT_SIZE 9.0
+.LS 11.0
+..
+.de PROFILE_END
+.PT_SIZE 9.5
+.LS 11.5
+..
+
+.\" ------------------------------------------------------------ ROLE line
+.\" args: 1=dates  2=role  3=company  4=location
+.nr role_count 0
+.de ROLE
+.sp 5p
+.br
+\*[navy]\fB\\$2\fP\*[black]\ \*[faint]\(em\ \\$3\*[black]
+.br
+\*[faint]\s[-0.5]\\$1\ \ \[pc]\ \\$4\s[0]\*[black]
+.sp 2p
+..
+
+.\" -------------------------------------------------------- COLUMN START
+.de COLUMN_START
+.sp 16p
+.nr role_count 0
+..
+
+.\" --------------------------------------------------------- SKILL GROUP
+.nr skill_group_count 0
+.de SKILLS_BEGIN
+.SECTION SKILLS
+.nh
+.na
+.nr skill_group_count 0
+..
+
+.de SKILL_GROUP
+.sp 5p
+.br
+\*[navy]\fB\\$*\fP\*[black]
+.br
+..
+
+.de SKILLS_END
+.hy
+.ad b
+.nr skill_group_count 0
+..
+
+.\" --------------------------------------------------------- SKILL TAG
+.de SKILL
+\m[borderc][\c
+\m[slfg]\fB\%\\$1\fP\c
+\m[borderc]]\m[black]\ 
+..
+
+.\" ----------------------------------------------------------- LANGUAGES
+.de LANGUAGES_BEGIN
+.SKILLS_END
+.SECTION LANGUAGES
+..
+
+.de LANGUAGE
+\*[navy]\fB\\$1\fP\*[black]\ \ \m[teal]\f[ZD]\N'108'\N'108'\N'108'\N'108'\N'108'\fP\m[black]\ \ \*[faint]\\$2\*[black]
+.br
+..
+
+.\" ------------------------------------------------------- STACK HEADER
+.\" args: 1=title  2=subtitle
+.de STACK_HEADER
+.NEWPAGE
+.BG_PATTERN
+.sp 4p
+\*[navy]\fB\s[+3]\\$1\s[0]\fP\*[black]
+.br
+.sp 3p
+\*[slate]\s[-0.5]\\$2\s[0]\*[black]
+.br
+.RULE 4p 4p
+.PT_SIZE 9.0
+.LS 11.0
+.nr cat_count 0
+..
+
+.\" ---------------------------------------------------- STACK CATEGORY
+.\" args: 1=category title
+.nr cat_count 0
+.de CATEGORY
+.if \n[cat_count]>0 .sp 3p
+.nr cat_count +1
+\*[teal]\fB\s[+0.5]\\$*\s[0]\fP\*[black]
+.sp 2p
+..
+
+.\" ------------------------------------------------------- PROJECT ENTRY
+.\" args: 1=display name  2=category/descriptor  3=description  4=url  5=anchor
+.de PCARD
+.sp 4p
+.ie !'\\$5'' \{\
+\m[teal]\fB>\fP\ \m[navy]\fB\s[+1]\\$1\s[0]\fP\m[black]\ \ \m[borderc][\c
+\m[slfg]\fB\\$2\fP\c
+\m[borderc]]\m[black]
+.\}
+.el \{\
+\m[teal]\fB>\fP\ \m[navy]\fB\s[+0.5]\\$1\s[0]\fP\m[black]\ \ \m[borderc][\c
+\m[slfg]\fB\\$2\fP\c
+\m[borderc]]\m[black]
+.\}
+.br
+\*[slate]\s[-0.5]\\$3\s[0]\*[black]
+.br
+\*[purple]\s[-1]\c
+.pdfhref W -D "\\$4" "\\$4"
+\*[black]\s[0]
+.sp 2p
+..
+
+.\" ---------------------------------------------------- INVARIANT ENTRY
+.\" args: 1=title  2=description  3=trailing_space
+.de INVARIANT
+\m[teal]\fB>\fP\ \m[navy]\fB\s[-0.2]\\$1\s[0]\fP\*[black]
+.br
+\*[slate]\s[-0.5]\\$2\s[0]\*[black]
+.if !'\\$3'' .sp \\$3
+..
+
+.\" -------------------------------------------------------- FOOTER LINK
+.\" args: 1=url
+.de FOOTER_LINK
+.sp |760p
+.ce
+\*[faint]\s[-1.5]CV source & build environment: \*[purple]\c
+.pdfhref W -D "\\$1" "\\$1"
+\*[black]\s[0]
+..

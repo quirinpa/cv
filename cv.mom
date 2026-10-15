@@ -1,0 +1,164 @@
+.\" -*- coding: utf-8 -*-
+.\" cv.mom — Paulo Quirino's CV
+.\" Build:  make   (or: GROFF_FONT_PATH=$HOME/cv/fonts pdfmom -t -k cv.mom > cv.pdf)
+.so style.mom
+
+.\" =====================================================================
+.\" HEADER
+.\" =====================================================================
+.CV_HEADER "Paulo Quirino" \
+  "Principal Systems & Full-Stack Architect" \
+  "Author of the Pure-C Web & Systems Engine Stack" \
+  "Lisbon, Portugal" "966211859" "quirinpa@gmail.com" \
+  "https://github.com/tty-pt" "github.com/tty-pt" \
+  "assets/pdf/portrait.pdf"
+
+.\" ================================ PROFILE =============================
+.PROFILE_BEGIN
+Software engineer with 7+ years of professional experience delivering web products, complemented
+by independent systems engineering in C. Experienced in React, TypeScript, software architecture
+and reusable component systems. Creator of a dependency-light Pure-C stack spanning HTTP
+services, WebAssembly, in-memory databases, search and graphics.
+.PROFILE_END
+
+.\" ================================= BODY ==============================
+.TS
+tab(@);
+lw(243p)2 lw(243p).
+T{
+.SECTION EXPERIENCE
+.ROLE "11/2025 – 08/2026" "Front-end and Architecture Specialist" "Loomtech" "Lisbon"
+Built a component-block document editor \(em layout and editor engines \(em with PDF and DOCX export, and architected the data model and frontend architecture. Automated component reuse across four entity types, and built forms, tables and infinite-scroll lists from minimal custom code.
+.ROLE "11/2022 – 02/2025" "Front-end Developer" "Mov.ai" "Lisbon"
+Primary frontend developer for a robotics solution. Added real-time logs and dynamic tables, refactored legacy code into encapsulated abstractions, and upgraded React and Material-UI.
+.ROLE "12/2021 – 07/2022" "Front-end Developer / Tech Lead" "PrimeIT" "Lisbon"
+Built micro-frontends for a GDPR compliance screen and proposed data-model and structural improvements, extracting reusable generalisations.
+.ROLE "10/2020 – 11/2021" "Full-stack Developer" "UNPARALLEL" "Lisbon"
+Built WordPress plugins, a Next.js full-stack app, a C++ Arduino library and assorted JavaScript projects, and contributed to the main React project.
+.ROLE "11/2019 – 05/2020" "Full-stack Developer" "Mobinteg" "Lisbon"
+Delivered multiple full-stack solutions and handled Unix administration and basic DevOps. Wrote a launcher to run the same application on either Angular or Mithril, and started using vim.css.
+.ROLE "08/2017 – 08/2018" "Web Developer" "Exictos" "Funchal"
+Maintained a portal for bank employees, wrote a C tool to remove duplicate labels, and built a mobile version of the employee portal.
+T}@T{
+.COLUMN_START
+.ROLE "06/2016 – 09/2016" "Software Developer (Internship)" "MIT-I" "Funchal"
+Built tools to identify visually similar images, using SIFT and custom filtering strategies.
+.ROLE "08/2014 – 05/2015" "Web Developer (Internship)" "CEHA" "Funchal"
+Built full-text search over book contents, cutting search times from weeks to under 0.14 seconds, and a rudimentary bundler for modern JavaScript syntax, along the lines of Webpack and Babel.
+.SKILLS_BEGIN
+.SKILL_GROUP "Systems, C & Architecture"
+.SKILL "C (C99/C11)"
+.SKILL "C++"
+.SKILL "Systems Architecture"
+.SKILL "POSIX / Unix"
+.SKILL "Isomorphic WASM"
+.SKILL "In-Memory DBs"
+.SKILL "Full-Text Search"
+.SKILL "Data Modelling"
+.SKILL_GROUP "Full-Stack, Backend & Databases"
+.SKILL "React"
+.SKILL "TypeScript"
+.SKILL "Node.js"
+.SKILL "Next.js"
+.SKILL "PHP"
+.SKILL "PostgreSQL"
+.SKILL "MySQL"
+.SKILL "Redis"
+.SKILL "MongoDB"
+.SKILL "Micro-Frontends"
+.SKILL "Redux"
+.SKILL "Component Reuse"
+.SKILL_GROUP "AI, Tooling & DevOps"
+.SKILL "Python"
+.SKILL "Vulkan / Local LLMs"
+.SKILL "AI-Assisted Workflows"
+.SKILL "Linux & DevOps"
+.SKILL "Image Processing"
+.SKILL "Webpack / Babel"
+.SKILL_GROUP "Leisure"
+.SKILL "Guitar"
+.SKILL "Writing"
+.SKILL "Poetry"
+.SKILL "Philosophy"
+.LANGUAGES_BEGIN
+.LANGUAGE "Portuguese" "Native \[pc] C2"
+.LANGUAGE "English" "Full Professional \[pc] C2"
+.sp 4p
+T}
+.TE
+
+.\" ============================== PROJECTS ==============================
+.STACK_HEADER "THE PURE-C APPLICATION ENGINE STACK" \
+  "A cohesive, zero-dependency software stack authored from scratch for high-concurrency web servers, isomorphic WASM applications, and specialized data engines. Zero external libraries, deterministic memory, sub-millisecond execution."
+
+.CATEGORY "1. RUNTIME & CONCURRENCY"
+.TS
+tab(@);
+lw(243p)2 lw(243p).
+T{
+.PCARD axil "HTTP / WS Server" "Event-driven HTTP(S), WebSocket and custom protocol daemon in plain C99. Single-threaded non-blocking I/O loop, zero dependencies, sub-millisecond routing." https://github.com/tty-pt/axil anchor
+T}@T{
+.PCARD libxylem "Dynamic Plugin Kernel" "Hook-based dynamic module system with runtime shared-library loading, dependency DAG resolution, lifecycle hooks, and strict ABI boundary enforcement." https://github.com/tty-pt/libxylem
+T}
+.TE
+
+.CATEGORY "2. ISOMORPHIC UI & WASM FRAMEWORK"
+.TS
+tab(@);
+lw(243p)2 lw(243p).
+T{
+.PCARD libbud "Isomorphic UI Compiler" "Dual-compilation reactive UI engine: compiles identical C code to native shared libraries for SSR and to browser WebAssembly for DOM hydration without JavaScript." https://github.com/tty-pt/libbud anchor
+T}@T{
+.PCARD "libbud-jsx" "Component Templating" "Declarative JSX-like macro dialect for pure C, enabling type-checked virtual DOM trees, ergonomic component composition, and single-pass HTML serialization." https://github.com/tty-pt/libbud
+T}
+.TE
+
+.CATEGORY "3. HIGH-PERFORMANCE STORAGE & SPECIALIZED INDEXES"
+.TS
+tab(@);
+lw(243p)2 lw(243p).
+T{
+.PCARD libcorm "In-Memory Struct DB" "Zero-copy in-memory struct database with secondary B-tree indexes, bidirectional relation mirrors, and instant disk persistence." https://github.com/tty-pt/libcorm anchor
+T}@T{
+.PCARD libhyle "Unified Schema Engine" "Single C struct schemas that automatically generate full-text search, multi-field filters, and sorted paginated views without SQL runtime overhead." https://github.com/tty-pt/libhyle
+T}
+T{
+.PCARD libstoma "Accent-Sensitive FTS" "High-throughput full-text search tokenizer with accent folding (pão ≠ pao), n-gram indexing, and BM25-ranked retrieval in pure C." https://github.com/tty-pt/libstoma
+T}@T{
+.PCARD libjoint "Interval-Tree Engine" "Augmented interval-tree database managing complex temporal intervals, multi-dimensional time series, and spatial 'who, where, when' lookups." https://github.com/tty-pt/libjoint
+T}
+T{
+.PCARD libsepal "Vector ANN Store" "Semantic vector database with two-stage Approximate Nearest Neighbor (ANN) search, SIMD-accelerated distance metrics, and vector quantization." https://github.com/tty-pt/libsepal
+T}@T{
+.PCARD libislet "3D Spatial Index" "Spatial indexing engine utilizing Morton space-filling curves and Z-order bounding boxes for lightning-fast 2D/3D spatial queries." https://github.com/tty-pt/libislet
+T}
+.TE
+
+.CATEGORY "4. ACCELERATED COMPUTING, AI & GRAPHICS"
+.TS
+tab(@);
+lw(243p)2 lw(243p).
+T{
+.PCARD libqllm "Vulkan Local LLM" "Zero-overhead local LLM inference engine running quantized transformer models and text embeddings directly on consumer GPUs via Vulkan compute shaders." https://github.com/tty-pt/libqllm anchor
+T}@T{
+.PCARD libqgl "Hardware 2D Graphics" "Lightweight, portable 2D rendering library with hardware rasterization, anti-aliased vector paths, and composable canvas operations." https://github.com/tty-pt/libqgl
+T}
+.TE
+
+.RULE 3p 3p
+.CATEGORY "CORE ARCHITECTURAL INVARIANTS"
+.TS
+tab(@);
+lw(243p)2 lw(243p).
+T{
+.INVARIANT "Zero Dependencies" "Standalone C99/POSIX implementation without external runtimes, garbage collectors, or third-party packages." 3p
+T}@T{
+.INVARIANT "Deterministic Latency" "Sub-millisecond response times, zero-copy buffer passing, and fixed-footprint memory layout." 3p
+T}
+T{
+.INVARIANT "Unified Isomorphism" "Shared C business logic dual-compiled to native server binaries (SSR) and client WebAssembly (WASM)."
+T}@T{
+.INVARIANT "Strict ABI Isolation" "Explicit XY module dependency DAGs, dynamic shared-library lifecycle hooks, and zero cross-module coupling."
+T}
+.TE
+.FOOTER_LINK "https://github.com/quirinpa/cv"
