@@ -7,45 +7,66 @@
 .\" HEADER
 .\" =====================================================================
 .CV_HEADER "Paulo Quirino" \
-  "Principal Systems & Full-Stack Architect" \
-  "Author of the Pure-C Web & Systems Engine Stack" \
+  "Lead Frontend Engineer & Systems Architect" \
+  "Specialist in React, TypeScript, Component Systems & High-Performance Web Engines" \
   "Lisbon, Portugal" "966211859" "quirinpa@gmail.com" \
   "https://github.com/tty-pt" "github.com/tty-pt" \
   "assets/pdf/portrait.pdf"
 
 .\" ================================ PROFILE =============================
 .PROFILE_BEGIN
-Software engineer with 7+ years of professional experience delivering web products, complemented
-by independent systems engineering in C. Experienced in React, TypeScript, software architecture
-and reusable component systems. Creator of a dependency-light Pure-C stack spanning HTTP
-services, WebAssembly, in-memory databases, search and graphics.
+Frontend-focused software architect with 8+ years of commercial experience delivering complex web platforms, real-time interfaces, and large-scale applications. Expert in React, TypeScript, state orchestration, datatype-driven component systems, and micro-frontends. Complemented by low-level systems engineering in C and WebAssembly for high-performance execution.
 .PROFILE_END
 
 .\" ================================= BODY ==============================
+.PT_SIZE 8.8
+.LS 10.4
 .TS
 tab(@);
-lw(243p)2 lw(243p).
+lw(242p)2 lw(242p).
 T{
 .SECTION EXPERIENCE
-.ROLE "11/2025 – 08/2026" "Front-end and Architecture Specialist" "Loomtech" "Lisbon"
-Built a component-block document editor \(em layout and editor engines \(em with PDF and DOCX export, and architected the data model and frontend architecture. Automated component reuse across four entity types, and built forms, tables and infinite-scroll lists from minimal custom code.
-.ROLE "11/2022 – 02/2025" "Front-end Developer" "Mov.ai" "Lisbon"
-Primary frontend developer for a robotics solution. Added real-time logs and dynamic tables, refactored legacy code into encapsulated abstractions, and upgraded React and Material-UI.
+.ROLE "11/2025 – 08/2026" "Front-end & Architecture Specialist" "Loomtech" "Lisbon"
+Architected the data model and block-based document editor engine with drag-and-drop layouts, dynamic formatting, and PDF/DOCX export pipelines. Designed a datatype-driven UI framework automating component reuse across 4 core entities, generating forms, tables, and infinite-scroll lists with minimal code. Implemented AI-assisted document synthesis with duplicate avoidance and semantic search.
+.STACK React, TypeScript, Valtio, React-Query, Zod, TailwindCSS, Vite
+.ROLE "11/2022 – 02/2025" "Lead Frontend Developer" "Mov.ai" "Lisbon"
+Primary frontend engineer for an autonomous robotics platform. Built 3D interactive digital twins in BabylonJS, a visual node flow editor, and a multi-type code editor for robot programming. Engineered real-time telemetry tables and a centralized log controller serving concurrent subscribers. Modernized core stack: upgraded React 16 to 18, migrated MUI 4 to 6, and optimized build pipelines via Vite, esbuild, and Webpack.
+.STACK React 18, TypeScript, BabylonJS, Material-UI 6, Remix, Vite, esbuild
 .ROLE "12/2021 – 07/2022" "Front-end Developer / Tech Lead" "PrimeIT" "Lisbon"
-Built micro-frontends for a GDPR compliance screen and proposed data-model and structural improvements, extracting reusable generalisations.
+Tech lead and frontend engineer architecting micro-frontends for an enterprise GDPR compliance platform. Pioneered datatype-driven UI architecture and pure-stack design, extracting reusable component generalizations adopted across product teams.
+.STACK React, Micro-Frontends, React-Router, TypeScript, SCRUM
 .ROLE "10/2020 – 11/2021" "Full-stack Developer" "UNPARALLEL" "Lisbon"
-Built WordPress plugins, a Next.js full-stack app, a C++ Arduino library and assorted JavaScript projects, and contributed to the main React project.
+Delivered full-stack applications in Next.js and contributed to core platform features in React. Built custom WordPress plugins, integrated IoT telemetry with a custom C++ Arduino library for acoustic sensors, and authored JavaScript utility libraries.
+.STACK Next.js, React, TypeScript, C++, WordPress, Node.js
 .ROLE "11/2019 – 05/2020" "Full-stack Developer" "Mobinteg" "Lisbon"
-Delivered multiple full-stack solutions and handled Unix administration and basic DevOps. Wrote a launcher to run the same application on either Angular or Mithril, and started using vim.css.
-.ROLE "08/2017 – 08/2018" "Web Developer" "Exictos" "Funchal"
-Maintained a portal for bank employees, wrote a C tool to remove duplicate labels, and built a mobile version of the employee portal.
+Delivered full-stack web solutions and Unix administration. Architected an interoperable runtime launcher executing applications seamlessly across Angular and Mithril. Engineered an early utility-first CSS compilation engine predating modern TailwindCSS paradigms.
+.STACK Angular, Mithril, TypeScript, Webpack, Babel, PHP, MySQL
 T}@T{
 .COLUMN_START
+.ROLE "08/2017 – 08/2018" "Web & Mobile Developer" "Exictos" "Funchal"
+Maintained core banking employee portals and engineered cross-platform mobile clients with React Native and Ionic. Designed structural component abstractions reducing maintenance surface, and authored a C tool for deduplicating localization assets.
+.STACK React Native, Ionic, JavaScript, C, Spring Boot
 .ROLE "06/2016 – 09/2016" "Software Developer (Internship)" "MIT-I" "Funchal"
-Built tools to identify visually similar images, using SIFT and custom filtering strategies.
+Built computer vision tools to identify visually similar images using SIFT keypoint descriptors, cluster priming heuristics, and image filtering to isolate noise.
+.STACK C++, SIFT, Image Processing, Heuristics
 .ROLE "08/2014 – 05/2015" "Web Developer (Internship)" "CEHA" "Funchal"
-Built full-text search over book contents, cutting search times from weeks to under 0.14 seconds, and a rudimentary bundler for modern JavaScript syntax, along the lines of Webpack and Babel.
+Implemented full-text search over digitized historical archives, cutting query latency from weeks to under 0.14s via Elasticsearch. Built a custom ES6 module bundler ahead of modern tooling.
+.STACK JavaScript, Elasticsearch, Full-Text Search, PHP
 .SKILLS_BEGIN
+.SKILL_GROUP "Frontend Architecture & UI"
+.SKILL "React"
+.SKILL "TypeScript"
+.SKILL "Next.js"
+.SKILL "Micro-Frontends"
+.SKILL "React-Query"
+.SKILL "Zod"
+.SKILL "Valtio"
+.SKILL "TailwindCSS"
+.SKILL "Material-UI"
+.SKILL "Redux"
+.SKILL "BabylonJS (3D)"
+.SKILL "Component Reuse"
+.SKILL "Vite / Webpack"
 .SKILL_GROUP "Systems, C & Architecture"
 .SKILL "C (C99/C11)"
 .SKILL "C++"
@@ -55,41 +76,35 @@ Built full-text search over book contents, cutting search times from weeks to un
 .SKILL "In-Memory DBs"
 .SKILL "Full-Text Search"
 .SKILL "Data Modelling"
-.SKILL_GROUP "Full-Stack, Backend & Databases"
-.SKILL "React"
-.SKILL "TypeScript"
+.SKILL_GROUP "Backend & Databases"
 .SKILL "Node.js"
-.SKILL "Next.js"
-.SKILL "PHP"
 .SKILL "PostgreSQL"
-.SKILL "MySQL"
 .SKILL "Redis"
 .SKILL "MongoDB"
-.SKILL "Micro-Frontends"
-.SKILL "Redux"
-.SKILL "Component Reuse"
+.SKILL "BerkeleyDB"
+.SKILL "MySQL"
+.SKILL "PHP"
 .SKILL_GROUP "AI, Tooling & DevOps"
 .SKILL "Python"
 .SKILL "Vulkan / Local LLMs"
-.SKILL "AI-Assisted Workflows"
+.SKILL "AI Workflows"
 .SKILL "Linux & DevOps"
-.SKILL "Image Processing"
-.SKILL "Webpack / Babel"
-.SKILL_GROUP "Leisure"
-.SKILL "Guitar"
-.SKILL "Writing"
-.SKILL "Poetry"
-.SKILL "Philosophy"
+.SKILL "Docker"
+.SKILL "Github CI"
+.SKILL "Azure DevOps"
+.EDUCATION_BEGIN
+.EDU "CET in Multimedia" "Proinov (Funchal)" "2013"
+.EDU "Curso Tecnológico Informática" "Escola Sec. João de Barros" "2002 – 2005"
 .LANGUAGES_BEGIN
 .LANGUAGE "Portuguese" "Native \[pc] C2"
-.LANGUAGE "English" "Full Professional \[pc] C2"
+.LANGUAGE "English" "Fluent \[pc] C1/C2"
 .sp 4p
 T}
 .TE
 
 .\" ============================== PROJECTS ==============================
-.STACK_HEADER "THE PURE-C APPLICATION ENGINE STACK" \
-  "A cohesive, zero-dependency software stack authored from scratch for high-concurrency web servers, isomorphic WASM applications, and specialized data engines. Zero external libraries, deterministic memory, sub-millisecond execution."
+.STACK_HEADER "SYSTEMS ARCHITECTURE & AUTONOMOUS AI STACK" \
+  "A cohesive, zero-dependency software stack authored from scratch: from high-concurrency web servers and isomorphic WASM UI engines to local GPU LLM runtimes, vector databases, and autonomous AI agent harnesses."
 
 .CATEGORY "1. RUNTIME & CONCURRENCY"
 .TS
@@ -102,18 +117,18 @@ T}@T{
 T}
 .TE
 
-.CATEGORY "2. ISOMORPHIC UI & WASM FRAMEWORK"
+.CATEGORY "2. ISOMORPHIC UI & 2D GRAPHICS"
 .TS
 tab(@);
 lw(243p)2 lw(243p).
 T{
-.PCARD libbud "Isomorphic UI Compiler" "Dual-compilation reactive UI engine: compiles identical C code to native shared libraries for SSR and to browser WebAssembly for DOM hydration without JavaScript." https://github.com/tty-pt/libbud anchor
+.PCARD libbud "Isomorphic UI Engine" "Dual-compilation reactive UI compiler with declarative JSX templating for pure C: compiles identical code to native shared libraries for SSR and to browser WebAssembly for DOM hydration without JavaScript." https://github.com/tty-pt/libbud anchor
 T}@T{
-.PCARD "libbud-jsx" "Component Templating" "Declarative JSX-like macro dialect for pure C, enabling type-checked virtual DOM trees, ergonomic component composition, and single-pass HTML serialization." https://github.com/tty-pt/libbud
+.PCARD libqgl "Hardware 2D Graphics" "Lightweight, portable 2D rendering library with hardware rasterization, anti-aliased vector paths, and composable canvas operations." https://github.com/tty-pt/libqgl
 T}
 .TE
 
-.CATEGORY "3. HIGH-PERFORMANCE STORAGE & SPECIALIZED INDEXES"
+.CATEGORY "3. RECALL KERNEL & SPECIALIZED STORAGE AXES"
 .TS
 tab(@);
 lw(243p)2 lw(243p).
@@ -123,25 +138,30 @@ T}@T{
 .PCARD libhyle "Unified Schema Engine" "Single C struct schemas that automatically generate full-text search, multi-field filters, and sorted paginated views without SQL runtime overhead." https://github.com/tty-pt/libhyle
 T}
 T{
-.PCARD libstoma "Accent-Sensitive FTS" "High-throughput full-text search tokenizer with accent folding (pão ≠ pao), n-gram indexing, and BM25-ranked retrieval in pure C." https://github.com/tty-pt/libstoma
+.PCARD libjoint "Interval-Tree Time Axis" "Canonical Time Axis: augmented interval-tree database managing complex temporal intervals, multi-dimensional time series, and spatial 'who, where, when' lookups." https://github.com/tty-pt/libjoint
 T}@T{
-.PCARD libjoint "Interval-Tree Engine" "Augmented interval-tree database managing complex temporal intervals, multi-dimensional time series, and spatial 'who, where, when' lookups." https://github.com/tty-pt/libjoint
+.PCARD libislet "3D Spatial Space Axis" "Canonical Space Axis: multi-dimensional spatial indexing engine utilizing Morton space-filling curves and Z-order bounding boxes for lightning-fast 2D/3D spatial queries." https://github.com/tty-pt/libislet
 T}
 T{
-.PCARD libsepal "Vector ANN Store" "Semantic vector database with two-stage Approximate Nearest Neighbor (ANN) search, SIMD-accelerated distance metrics, and vector quantization." https://github.com/tty-pt/libsepal
+.PCARD libsepal "Vector Meaning Axis" "Canonical Meaning Axis: vector database with two-stage Approximate Nearest Neighbor (ANN) search, SIMD distance metrics, and vector quantization." https://github.com/tty-pt/libsepal
 T}@T{
-.PCARD libislet "3D Spatial Index" "Spatial indexing engine utilizing Morton space-filling curves and Z-order bounding boxes for lightning-fast 2D/3D spatial queries." https://github.com/tty-pt/libislet
+.PCARD liblemma "Accent-Sensitive Text Axis" "Canonical Text Axis: high-throughput full-text search tokenizer with accent folding (pão ≠ pao), n-gram indexing, and BM25-ranked retrieval in pure C." https://github.com/tty-pt/liblemma
 T}
 .TE
 
-.CATEGORY "4. ACCELERATED COMPUTING, AI & GRAPHICS"
+.CATEGORY "4. LOCAL AI RUNTIMES & AUTONOMOUS AGENT HARNESSES"
 .TS
 tab(@);
 lw(243p)2 lw(243p).
 T{
-.PCARD libqllm "Vulkan Local LLM" "Zero-overhead local LLM inference engine running quantized transformer models and text embeddings directly on consumer GPUs via Vulkan compute shaders." https://github.com/tty-pt/libqllm anchor
+.PCARD axil-auren "Vulkan LLM Engine" "High-throughput local LLM inference and vector embeddings daemon served as an axil module. Runs quantized GGUF models on consumer GPUs via Vulkan/Metal, powering zero-cost System One judging and dense vector search." https://github.com/tty-pt/axil-auren anchor
 T}@T{
-.PCARD libqgl "Hardware 2D Graphics" "Lightweight, portable 2D rendering library with hardware rasterization, anti-aliased vector paths, and composable canvas operations." https://github.com/tty-pt/libqgl
+.PCARD pi-mm "Agent Memory Mipmaps" "Intelligent persistent memory engine for Pi coding agents. Combines libcorm struct storage with libsepal vector ANN search to autonomously inject relevant context before prompt execution and capture technical learnings on task settlement." https://github.com/tty-pt/pi-mm
+T}
+T{
+.PCARD pi-quest "Epistemic Task Harness" "Autonomous quest journal and task governor for Pi coding agents. Enforces strict epistemic lifecycle gates \(em plan drafting, adversarial review passes, and deterministic validation \(em delivering reliable execution on complex multi-step objectives." https://github.com/tty-pt/pi-quest
+T}@T{
+.PCARD pi-early-compact "Context Governor" "Intelligent context compaction governor for Pi coding agents, enforcing adaptive threshold tiers, token headroom guards, and deterministic trimming before context collapse." https://github.com/tty-pt/pi-early-compact
 T}
 .TE
 

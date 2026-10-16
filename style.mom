@@ -9,6 +9,7 @@
 .\" ---------------------------------------------------------------- page
 .PAPER A4
 .PAGE 595.28p 841.89p 48p 48p 48p 48p
+.B_MARGIN 36p
 
 .\" Blank input lines would each add a blank line of vertical space.
 .\" Ignore them; spacing is set explicitly by semantic macros.
@@ -32,10 +33,13 @@
 .NEWCOLOR borderc  RGB #94A3B8
 .NEWCOLOR gridc    RGB #EBF4F3
 .NEWCOLOR rulec    RGB #5FAFA7
+.NEWCOLOR pillbg   RGB #EBF4F3
 
 .\" ------------------------------------------------- full-measure regs
 .nr FULLW \n[.l]
 .nr LM \n[.i]
+.nr pill_x 0
+.nr pill_sp \w@\ @
 
 .\" right-indent helper: shrink line length by \$1 (leaves left alone)
 .de RTIND
@@ -68,16 +72,19 @@
 \L'740p'\v'-740p'\h'73p'\c
 \L'740p'\v'-740p'\h'8p'\c
 \L'740p'\v'-740p'\c
-\h'-499p'\m[black]\c
+\h'-499p'\c
+\M[teal]\m[teal]\c
+\Z'\h'548p'\v'-60p'\D'P 0 40p -40p -40p 40p 0''\c
+\m[black]\c
 .rt
 ..
 
 .\" ------------------------------------------------------------- SECTION
 .de SECTION
 .br
-.sp 16p
+.sp 8p
 \*[navy]\fB\s[+1.5]\\$*\s[0]\fP\*[black]
-.sp 4p
+.sp 2.5p
 ..
 
 .\" ---------------------------------------------------- HORIZONTAL RULE
@@ -112,7 +119,7 @@
 \*[black]
 .br
 .RMARG
-.RULE 8p 2p
+.RULE 4p 2p
 ..
 
 .\" ------------------------------------------------------------ PROFILE
@@ -130,17 +137,23 @@
 .\" args: 1=dates  2=role  3=company  4=location
 .nr role_count 0
 .de ROLE
-.sp 5p
+.sp 2.5p
 .br
 \*[navy]\fB\\$2\fP\*[black]\ \*[faint]\(em\ \\$3\*[black]
 .br
 \*[faint]\s[-0.5]\\$1\ \ \[pc]\ \\$4\s[0]\*[black]
-.sp 2p
+.sp 1p
+..
+
+.de STACK
+.br
+\m[slfg]\s[7.2p]\fBStack:\fP\m[faint]\ \\$*\s[8.8p]\m[black]
+.sp 0.5p
 ..
 
 .\" -------------------------------------------------------- COLUMN START
 .de COLUMN_START
-.sp 16p
+.sp 8p
 .nr role_count 0
 ..
 
@@ -151,26 +164,64 @@
 .nh
 .na
 .nr skill_group_count 0
+.nr pill_x 0
 ..
 
 .de SKILL_GROUP
-.sp 5p
+.sp 3p
 .br
 \*[navy]\fB\\$*\fP\*[black]
 .br
+.nr pill_x 0
 ..
 
 .de SKILLS_END
 .hy
 .ad b
 .nr skill_group_count 0
+.nr pill_x 0
+..
+
+.\" -------------------------------------------------------------- PILL
+.\" args: 1=text  2=trailing_space_flag ('nospace' suppresses trailing space)
+.de PILL
+.nr pw \\w@\\m[borderc][\\m[slfg]\\fB\%\\$1\\fP\\m[borderc]]@
+.ie '\\$2'nospace' .nr add_sp 0
+.el .nr add_sp \\n[pill_sp]
+.nr total_w \\n[pw]+\\n[add_sp]
+.if (\\n[pill_x]>0)&((\\n[pill_x]+\\n[pw]+14p)>\\n[.l]) \{\
+.  br
+.  nr pill_x 0
+.\}
+\\M[pillbg]\\m[pillbg]\\c
+\\Z'\\v'-8.2p'\\D'P \\n[pw]u 0 0 10.8p -\\n[pw]u 0''\\c
+\\m[borderc][\\c
+\\m[slfg]\\fB\%\\$1\\fP\\c
+\\m[borderc]]\\m[black]\\c
+.ie '\\$2'nospace' \\c
+.el \ 
+.if !'\\$2'nospace' .nr pill_x +\\n[total_w]
+.if '\\$2'nospace' .nr pill_x 0
 ..
 
 .\" --------------------------------------------------------- SKILL TAG
 .de SKILL
-\m[borderc][\c
-\m[slfg]\fB\%\\$1\fP\c
-\m[borderc]]\m[black]\ 
+.PILL "\\$1"
+..
+
+.\" ----------------------------------------------------------- EDUCATION
+.de EDUCATION_BEGIN
+.SKILLS_END
+.SECTION EDUCATION
+..
+
+.de EDU
+.sp 1.5p
+.br
+\*[navy]\fB\\$1\fP\*[black]
+.br
+\*[faint]\s[-0.5]\\$2\ \ \[pc]\ \\$3\s[0]\*[black]
+.sp 0.5p
 ..
 
 .\" ----------------------------------------------------------- LANGUAGES
@@ -192,12 +243,12 @@
 .sp 4p
 \*[navy]\fB\s[+3]\\$1\s[0]\fP\*[black]
 .br
-.sp 3p
+.sp 2p
 \*[slate]\s[-0.5]\\$2\s[0]\*[black]
 .br
-.RULE 4p 4p
-.PT_SIZE 9.0
-.LS 11.0
+.RULE 3p 3p
+.PT_SIZE 8.6
+.LS 10.2
 .nr cat_count 0
 ..
 
@@ -205,25 +256,23 @@
 .\" args: 1=category title
 .nr cat_count 0
 .de CATEGORY
-.if \n[cat_count]>0 .sp 3p
+.if \n[cat_count]>0 .sp 2.5p
 .nr cat_count +1
 \*[teal]\fB\s[+0.5]\\$*\s[0]\fP\*[black]
-.sp 2p
+.sp 1.5p
 ..
 
 .\" ------------------------------------------------------- PROJECT ENTRY
 .\" args: 1=display name  2=category/descriptor  3=description  4=url  5=anchor
 .de PCARD
-.sp 4p
+.sp 2.5p
 .ie !'\\$5'' \{\
-\m[teal]\fB>\fP\ \m[navy]\fB\s[+1]\\$1\s[0]\fP\m[black]\ \ \m[borderc][\c
-\m[slfg]\fB\\$2\fP\c
-\m[borderc]]\m[black]
+\m[teal]\fB>\fP\ \m[navy]\fB\s[+1]\\$1\s[0]\fP\m[black]\ \ \c
+.PILL "\\$2" nospace
 .\}
 .el \{\
-\m[teal]\fB>\fP\ \m[navy]\fB\s[+0.5]\\$1\s[0]\fP\m[black]\ \ \m[borderc][\c
-\m[slfg]\fB\\$2\fP\c
-\m[borderc]]\m[black]
+\m[teal]\fB>\fP\ \m[navy]\fB\s[+0.5]\\$1\s[0]\fP\m[black]\ \ \c
+.PILL "\\$2" nospace
 .\}
 .br
 \*[slate]\s[-0.5]\\$3\s[0]\*[black]
@@ -231,7 +280,7 @@
 \*[purple]\s[-1]\c
 .pdfhref W -D "\\$4" "\\$4"
 \*[black]\s[0]
-.sp 2p
+.sp 1.5p
 ..
 
 .\" ---------------------------------------------------- INVARIANT ENTRY
@@ -246,7 +295,7 @@
 .\" -------------------------------------------------------- FOOTER LINK
 .\" args: 1=url
 .de FOOTER_LINK
-.sp |760p
+.sp |772p
 .ce
 \*[faint]\s[-1.5]CV source & build environment: \*[purple]\c
 .pdfhref W -D "\\$1" "\\$1"

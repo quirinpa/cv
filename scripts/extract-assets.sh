@@ -26,7 +26,7 @@ libxylem libxylem
 libbud   libbud
 libcorm  libcorm
 libhyle  libhyle
-libstoma libstoma
+liblemma liblemma
 libjoint libjoint
 libsepal libsepal
 libislet libislet
