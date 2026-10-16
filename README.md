@@ -60,8 +60,8 @@ sudo apt update && sudo apt install -y \
 ### Visual Design System
 
 - **Retro-Technical Aesthetic**: Inspired by 1980s engineering drafting and technical typography.
-- **Rhythmic Background Pattern**: Native groff vector vertical drafting rules (`.BG_PATTERN`) providing subtle margin guides and column boundaries in faint teal (`#EBF4F3`).
-- **Homogeneous Skill Tags**: Bracketed retro-terminal pills (`[ tag ]`) with unpaddable spacing, slate borders, and teal text.
+- **Rhythmic Background Pattern**: Native groff vector vertical drafting rules (`.BG_PATTERN`) providing subtle margin guides, column boundaries in faint teal (`#EBF4F3`), and a sleek teal corner triangle in the top right.
+- **Homogeneous Skill & Category Tags**: Bracketed retro-terminal pills (`.PILL`, `[tag]`) with subtle background highlight (`#EBF4F3`), atomic line-fit bounds, slate borders, and teal text.
 - **Pure-C Architecture Showcase**: Two-column layout detailing the C stack on Page 2, concluding with a symmetrical two-column grid of 4 Core Architectural Invariants (*Zero Dependencies*, *Deterministic Latency*, *Unified Isomorphism*, and *Strict ABI Isolation*).
 
 ---

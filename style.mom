@@ -32,10 +32,13 @@
 .NEWCOLOR borderc  RGB #94A3B8
 .NEWCOLOR gridc    RGB #EBF4F3
 .NEWCOLOR rulec    RGB #5FAFA7
+.NEWCOLOR pillbg   RGB #EBF4F3
 
 .\" ------------------------------------------------- full-measure regs
 .nr FULLW \n[.l]
 .nr LM \n[.i]
+.nr pill_x 0
+.nr pill_sp \w@\ @
 
 .\" right-indent helper: shrink line length by \$1 (leaves left alone)
 .de RTIND
@@ -68,7 +71,10 @@
 \L'740p'\v'-740p'\h'73p'\c
 \L'740p'\v'-740p'\h'8p'\c
 \L'740p'\v'-740p'\c
-\h'-499p'\m[black]\c
+\h'-499p'\c
+\M[teal]\m[teal]\c
+\Z'\h'548p'\v'-60p'\D'P 0 40p -40p -40p 40p 0''\c
+\m[black]\c
 .rt
 ..
 
@@ -151,6 +157,7 @@
 .nh
 .na
 .nr skill_group_count 0
+.nr pill_x 0
 ..
 
 .de SKILL_GROUP
@@ -158,19 +165,41 @@
 .br
 \*[navy]\fB\\$*\fP\*[black]
 .br
+.nr pill_x 0
 ..
 
 .de SKILLS_END
 .hy
 .ad b
 .nr skill_group_count 0
+.nr pill_x 0
+..
+
+.\" -------------------------------------------------------------- PILL
+.\" args: 1=text  2=trailing_space_flag ('nospace' suppresses trailing space)
+.de PILL
+.nr pw \\w@\\m[borderc][\\m[slfg]\\fB\%\\$1\\fP\\m[borderc]]@
+.ie '\\$2'nospace' .nr add_sp 0
+.el .nr add_sp \\n[pill_sp]
+.nr total_w \\n[pw]+\\n[add_sp]
+.if (\\n[pill_x]>0)&((\\n[pill_x]+\\n[pw]+3p)>\\n[.l]) \{\
+.  br
+.  nr pill_x 0
+.\}
+\\M[pillbg]\\m[pillbg]\\c
+\\Z'\\v'-8.2p'\\D'P \\n[pw]u 0 0 10.8p -\\n[pw]u 0''\\c
+\\m[borderc][\\c
+\\m[slfg]\\fB\%\\$1\\fP\\c
+\\m[borderc]]\\m[black]\\c
+.ie '\\$2'nospace' \\c
+.el \ 
+.if !'\\$2'nospace' .nr pill_x +\\n[total_w]
+.if '\\$2'nospace' .nr pill_x 0
 ..
 
 .\" --------------------------------------------------------- SKILL TAG
 .de SKILL
-\m[borderc][\c
-\m[slfg]\fB\%\\$1\fP\c
-\m[borderc]]\m[black]\ 
+.PILL "\\$1"
 ..
 
 .\" ----------------------------------------------------------- LANGUAGES
@@ -216,14 +245,12 @@
 .de PCARD
 .sp 4p
 .ie !'\\$5'' \{\
-\m[teal]\fB>\fP\ \m[navy]\fB\s[+1]\\$1\s[0]\fP\m[black]\ \ \m[borderc][\c
-\m[slfg]\fB\\$2\fP\c
-\m[borderc]]\m[black]
+\m[teal]\fB>\fP\ \m[navy]\fB\s[+1]\\$1\s[0]\fP\m[black]\ \ \c
+.PILL "\\$2" nospace
 .\}
 .el \{\
-\m[teal]\fB>\fP\ \m[navy]\fB\s[+0.5]\\$1\s[0]\fP\m[black]\ \ \m[borderc][\c
-\m[slfg]\fB\\$2\fP\c
-\m[borderc]]\m[black]
+\m[teal]\fB>\fP\ \m[navy]\fB\s[+0.5]\\$1\s[0]\fP\m[black]\ \ \c
+.PILL "\\$2" nospace
 .\}
 .br
 \*[slate]\s[-0.5]\\$3\s[0]\*[black]
