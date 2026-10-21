@@ -15,7 +15,7 @@
 
 .\" ================================ PROFILE =============================
 .PROFILE_BEGIN
-Frontend-focused software architect with 8+ years of commercial experience delivering complex web platforms, real-time interfaces, and large-scale applications. Expert in React, TypeScript, state orchestration, datatype-driven component systems, and micro-frontends. Complemented by low-level systems engineering in C and WebAssembly for high-performance execution.
+Bridges low-level mechanical sympathy (C99, WASM, POSIX event loops) with modern reactive UI ergonomics (React, TypeScript, state orchestration). 8+ years delivering high-scale web platforms, real-time telemetry interfaces, and datatype-driven component systems with deterministic performance and minimal operational overhead.
 .PROFILE_END
 
 .\" ================================= BODY ==============================
@@ -27,13 +27,13 @@ lw(242p)2 lw(242p).
 T{
 .SECTION EXPERIENCE
 .ROLE "11/2025 – 08/2026" "Front-end & Architecture Specialist" "Loomtech" "Lisbon"
-Architected the data model and block-based document editor engine with drag-and-drop layouts, dynamic formatting, and PDF/DOCX export pipelines. Designed a datatype-driven UI framework automating component reuse across 4 core entities, generating forms, tables, and infinite-scroll lists with minimal code. Implemented AI-assisted document synthesis with duplicate avoidance and semantic search.
+Architected the frontend and data model for a block-based document editor engine supporting drag-and-drop layouts, dynamic formatting, and PDF/DOCX export. Engineered a datatype-driven UI framework automating component reuse across 4 core entities \(em generating forms, live tables, and infinite-scroll lists from minimal custom code. Integrated AI-assisted document creation with duplicate avoidance and semantic search.
 .STACK React, TypeScript, Valtio, React-Query, Zod, TailwindCSS, Vite
 .ROLE "11/2022 – 02/2025" "Lead Frontend Developer" "Mov.ai" "Lisbon"
-Primary frontend engineer for an autonomous robotics platform. Built 3D interactive digital twins in BabylonJS, a visual node flow editor, and a multi-type code editor for robot programming. Engineered real-time telemetry tables and a centralized log controller serving concurrent subscribers. Modernized core stack: upgraded React 16 to 18, migrated MUI 4 to 6, and optimized build pipelines via Vite, esbuild, and Webpack.
+Primary frontend engineer for an autonomous robotics solution. Built 3D interactive scenes in BabylonJS, a visual node flow behavior editor, and a multi-type code editor for robotics coordination. Developed real-time telemetry tables and a centralized log controller serving concurrent subscribers. Led build package optimization, upgraded React 16 to 18, and migrated Material-UI 4 to 6.
 .STACK React 18, TypeScript, BabylonJS, Material-UI 6, Remix, Vite, esbuild
 .ROLE "12/2021 – 07/2022" "Front-end Developer / Tech Lead" "PrimeIT" "Lisbon"
-Tech lead and frontend engineer architecting micro-frontends for an enterprise GDPR compliance platform. Pioneered datatype-driven UI architecture and pure-stack design, extracting reusable component generalizations adopted across product teams.
+Tech lead and frontend engineer architecting micro-frontends for an enterprise GDPR compliance platform. Pioneered datatype-driven UI architecture and pure-stack design principles, formalizing data models and extracting reusable component generalizations adopted across product teams.
 .STACK React, Micro-Frontends, React-Router, TypeScript, SCRUM
 .ROLE "10/2020 – 11/2021" "Full-stack Developer" "UNPARALLEL" "Lisbon"
 Delivered full-stack applications in Next.js and contributed to core platform features in React. Built custom WordPress plugins, integrated IoT telemetry with a custom C++ Arduino library for acoustic sensors, and authored JavaScript utility libraries.
@@ -117,14 +117,19 @@ T}@T{
 T}
 .TE
 
-.CATEGORY "2. ISOMORPHIC UI & 2D GRAPHICS"
+.CATEGORY "2. ISOMORPHIC UI, GRAPHICS & SPATIAL ENGINES"
 .TS
 tab(@);
 lw(243p)2 lw(243p).
 T{
 .PCARD libbud "Isomorphic UI Engine" "Dual-compilation reactive UI compiler with declarative JSX templating for pure C: compiles identical code to native shared libraries for SSR and to browser WebAssembly for DOM hydration without JavaScript." https://github.com/tty-pt/libbud anchor
 T}@T{
-.PCARD libqgl "Hardware 2D Graphics" "Lightweight, portable 2D rendering library with hardware rasterization, anti-aliased vector paths, and composable canvas operations." https://github.com/tty-pt/libqgl
+.PCARD libqgl "Abstract 2D Graphics" "Portable 2D vector rendering library with hardware rasterization and composable canvas operations. Compiles to native and WebGL, powering sevenways and visual spatial clients." https://github.com/tty-pt/libqgl
+T}
+T{
+.PCARD axil-nd "Spatial Simulation Engine" "Multi-user spatial simulation and virtual world daemon on axil. Features real-time state synchronization, entity-component hierarchies, and interactive spatial presence over WebSockets." https://github.com/tty-pt/axil-nd anchor
+T}@T{
+.PCARD axil-tty "WebSocket PTY Bridge" "Dynamic WebSocket-to-PTY terminal bridge module for axil. Spawns interactive login shells over WebSockets with Telnet negotiation (NAWS) and low-latency browser terminal emulation." https://github.com/tty-pt/axil-tty
 T}
 .TE
 
@@ -152,16 +157,15 @@ T}
 .CATEGORY "4. LOCAL AI RUNTIMES & AUTONOMOUS AGENT HARNESSES"
 .TS
 tab(@);
+l s
 lw(243p)2 lw(243p).
 T{
 .PCARD axil-auren "Vulkan LLM Engine" "High-throughput local LLM inference and vector embeddings daemon served as an axil module. Runs quantized GGUF models on consumer GPUs via Vulkan/Metal, powering zero-cost System One judging and dense vector search." https://github.com/tty-pt/axil-auren anchor
-T}@T{
-.PCARD pi-mm "Agent Memory Mipmaps" "Intelligent persistent memory engine for Pi coding agents. Combines libcorm struct storage with libsepal vector ANN search to autonomously inject relevant context before prompt execution and capture technical learnings on task settlement." https://github.com/tty-pt/pi-mm
 T}
 T{
-.PCARD pi-quest "Epistemic Task Harness" "Autonomous quest journal and task governor for Pi coding agents. Enforces strict epistemic lifecycle gates \(em plan drafting, adversarial review passes, and deterministic validation \(em delivering reliable execution on complex multi-step objectives." https://github.com/tty-pt/pi-quest
+.PCARD pi-mm "Agent Memory · npm" "Intelligent persistent memory engine for Pi coding agents (@tty-pt/pi-mm). Combines libcorm struct storage with libsepal vector ANN search to autonomously inject relevant context and capture technical learnings on task settlement." https://github.com/tty-pt/pi-mm
 T}@T{
-.PCARD pi-early-compact "Context Governor" "Intelligent context compaction governor for Pi coding agents, enforcing adaptive threshold tiers, token headroom guards, and deterministic trimming before context collapse." https://github.com/tty-pt/pi-early-compact
+.PCARD pi-quest "Epistemic Harness · npm" "Autonomous quest journal and task governor for Pi coding agents (@tty-pt/pi-quest). Enforces strict epistemic lifecycle gates \(em plan drafting, adversarial review passes, and deterministic validation \(em delivering reliable execution." https://github.com/tty-pt/pi-quest
 T}
 .TE
 

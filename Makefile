@@ -8,7 +8,7 @@ images:
 	@scripts/build-images.sh
 pdf:
 	@if [ ! -f fonts/devpdf/InterR ]; then scripts/build-fonts.sh; fi
-	@if [ ! -f assets/pdf/axil.pdf ]; then scripts/build-images.sh; fi
+	@if [ ! -f assets/pdf/portrait.pdf ]; then scripts/build-images.sh; fi
 	GROFF_FONT_PATH=$(CURDIR)/fonts pdfmom -t -k cv.mom > cv.pdf 2>build.log
 	@cat build.log
 	@echo "---- build pdfinfo ----"
